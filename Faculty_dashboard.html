@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.8.0/suncalc.min.js"></script>
+
+    <script>
+        function openPage() {
+            window.location.href = "index.html"; // Replace with your HTML file's path
+        }
+    </script>
+
+
+</head>
+<body data-role="Faculty" class="Faculty_dashboard">
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#upcoming-events">Upcoming Events</a></li>
+                <li><a href="#event-calendar">Event Calendar</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero" style="background-image: url('../images/hero-background.jpg');">
+            <div class="hero-content">
+                <h2>Welcome to Our Event Calendar</h2>
+                <p>Stay updated with all our exciting events!</p>
+                <a href="#event-calendar" class="cta-button">View Calendar</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section-title">About Us</h2>
+            <div class="mission">
+                <h3>Our Mission</h3>
+                <p>At our core, we are dedicated to fostering innovation, nurturing talent, and creating opportunities for growth in the world of technology and entrepreneurship.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-item">
+                    <div class="about-image">
+                        <img src="../images/startup.jpg" alt="Startup Image">
+                    </div>
+                    <div class="about-info">
+                        <h4>Startup Initiatives</h4>
+                        <p>A startup is an innovative, fast-growing business that brings fresh ideas and solutions to the market. It focuses on creating unique products or services, often leveraging cutting-edge technology to address customer needs. With a passion for innovation, startups aim to disrupt industries and deliver value, all while adapting to rapid market changes</p>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <div class="about-image">
+                        <img src="../images/incubation.jpg" alt="Incubation Image">
+                    </div>
+                    <div class="about-info">
+                        <h4>Incubation Programs</h4>
+                        <p>An incubation center supports startups by providing resources, mentorship, and a collaborative environment to nurture early-stage businesses. It offers guidance, office space, and networking opportunities to help entrepreneurs turn their innovative ideas into successful ventures. Incubation centers are essential in accelerating growth, reducing risks, and preparing startups for long-term success in competitive markets.</p>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <div class="about-image">
+                        <img src="../images/internship.jpg" alt="Internship Image">
+                    </div>
+                    <div class="about-info">
+                        <h4>Internship Opportunities</h4>
+                        <p>An internship offers hands-on experience and learning opportunities for students or professionals looking to gain expertise in a specific field. It provides practical exposure, mentorship, and the chance to apply theoretical knowledge in real-world scenarios. Internships help individuals build essential skills, expand their professional network, and enhance their career prospects in a competitive job market.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!---upcoming events-->
+<section id="upcoming-events" class="upcoming-events">
+    <h2>Upcoming Events</h2>
+    <div id="event-list" class="event-list">
+        <div class="event-card" data-event-id="1" data-event-name="Bonhomie" data-event-date="May 15, 2023" data-event-description="Bonhomie is an annual cultural festival celebrating arts and creativity.">
+            <a href="">
+              <img src="../images/event1.jpg" alt="Event 1">
+            </a>
+            <div class="event-info">
+                <h3>Bonhomie</h3>
+                <p class="event-date">Date: May 15, 2023</p>
+                <p class="event-description">Bonhomie is an annual cultural festival celebrating arts and creativity.</p>
+                <div class="event-actions">
+                    <button class="btn delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="event-card" data-event-id="2" data-event-name="Hackathon" data-event-date="June 22, 2023" data-event-description="Join our 24-hour coding challenge and build innovative solutions.">
+            <a href="">
+                <img src="../images/event2.jpg" alt="Hackathon" class="event-image ">
+            </a>
+            <div class="event-info">
+                <h3>Hackathon</h3>
+                <p class="event-date">Date: June 22, 2023</p>
+                <p class="event-description">Join our 24-hour coding challenge and build innovative solutions.</p>
+                <div class="event-actions">
+                    <button class="btn delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="event-card" data-event-id="3" data-event-name="Startup" data-event-date="July 8, 2023" data-event-description="Learn from successful entrepreneurs and pitch your startup ideas.">
+            <a href="">
+                <img src="../images/event3.jpg" alt="Startup" class="event-image">
+            </a>
+            <div class="event-info">
+                <h3>Startup</h3>
+                <p class="event-date">Date: July 8, 2023</p>
+                <p class="event-description">Learn from successful entrepreneurs and pitch your startup ideas.</p>
+                <div class="event-actions">
+                    <button class="btn delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="event-management" class="event-management">
+    <h2 id="event-form-title">Add New Event</h2>
+    <form id="addEventForm">
+        <div class="input-group">
+            <label for="eventName"><i class="fas fa-calendar-day"></i> Event Name</label>
+            <input type="text" id="eventName" placeholder=" " required>
+        </div>
+        <div class="input-group">
+            <label for="eventDate"><i class="fas fa-calendar-alt"></i> Event Date</label>
+            <input type="date" id="eventDate" required>
+        </div>
+        <div class="input-group">
+            <label for="eventImage"><i class="fas fa-link"></i> Image URL</label>
+            <input type="text" id="eventImage" placeholder=" " required>
+        </div>
+        <div class="input-group">
+            <label for="eventDescription"><i class="fas fa-align-left"></i> Event Description</label>
+            <textarea id="eventDescription" placeholder=" " required></textarea>
+        </div>
+        <input type="hidden" id="eventId">
+        <button type="submit" id="addEventBtn" class="btn btn-submit">Add Event</button>
+        <button type="button" id="cancelEditBtn" class="btn btn-submit" style="display: none;">Cancel Edit</button>
+    </form>
+</section>
+
+<div id="eventDetailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="eventDetailsTitle"></h2>
+        <p id="eventDetailsDate"></p>
+        <p id="eventDetailsDescription"></p>
+    </div>
+</div>
+
+<!---upcoming events-->
+<!--- events calender-->
+        <section id="event-calendar" class="calendar-container">
+            <h2>Event Calendar</h2>
+            <div class="container">
+                <div class="left">
+                    <div class="calendar">
+                        <div class="month">
+                            <i class="fas fa-angle-left prev"></i>
+                            <div class="date">December 2015</div>
+                            <i class="fas fa-angle-right next"></i>
+                        </div>
+                        <div class="weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="days"></div>
+                        <div class="goto-today">
+                            <div class="goto">
+                                <input type="text" placeholder="mm/yyyy" class="date-input" />
+                                <button class="goto-btn">Go</button>
+                            </div>
+                            <button class="today-btn">Today</button>
+                        </div>
+                        <div class="weather-moon">
+                            <div class="weather">
+                                <img class="weather-icon" src="" alt="Weather">
+                                <span class="weather-temp"></span>
+                            </div>
+                            <div class="moon-phase"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="today-date">
+                        <div class="event-day">Wed</div>
+                        <div class="event-date">12th December 2022</div>
+                    </div>
+                    <div class="events"></div>
+                    <div class="add-event-wrapper">
+                        <div class="add-event-header">
+                            <div class="title">Add Event</div>
+                            <i class="fas fa-times close"></i>
+                        </div>
+                        <div class="add-event-body">
+                            <div class="add-event-input">
+                                <input type="text" placeholder="Event Name" class="event-name" />
+                            </div>
+                            <div class="add-event-input">
+                                <input type="text" placeholder="Event Time From" class="event-time-from" />
+                            </div>
+                            <div class="add-event-input">
+                                <input type="text" placeholder="Event Time To" class="event-time-to" />
+                            </div>
+                            <div class="add-event-input">
+                                <select class="event-type">
+                                    <option value="user">User Event</option>
+                                    <option value="academic">Academic Event</option>
+                                    <option value="holiday">Holiday</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="add-event-footer">
+                            <button class="add-event-btn">Add Event</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="add-event">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+1 (123) 456-7890</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@example.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Main St, City, Country</p>
+                </div>
+            </div>
+            <!---contect section-->
+            <form class="contact-form" id="contactForm" method="post" ACTION="add.php">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                    <label for="name">Name</label>
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder="Your Email">
+                    <label for="email">Email</label>
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="form-success-message" id="formSuccess">Thank you! Your message has been sent.</div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Social Media Icons -->
+    <div class="wrapper">
+        <a href="https://m.facebook.com/aiktcofficial/" class="button">
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            <span>Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/aiktcofficial?igsh=M3ljY2piOWxiY3c2" class="button">
+            <div class="icon">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <span>Instagram</span>
+        </a>
+        <a href="https://youtube.com/@aiktctv?si=eF7x_VAZE7xnV9tw" class="button">
+            <div class="icon">
+                <i class="fab fa-youtube"></i>
+            </div>
+            <span>YouTube</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
